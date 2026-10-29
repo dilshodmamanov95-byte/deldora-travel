@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light Theme (default) */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 249, 250, 251;
+  
+  /* Primary colors */
+  --primary-gold: 212, 165, 50;
+  --primary-gold-light: 245, 199, 97;
+  --primary-gold-dark: 180, 132, 40;
+  
+  /* Background colors */
+  --bg-primary: 255, 255, 255;
+  --bg-secondary: 249, 250, 251;
+  --bg-tertiary: 243, 244, 246;
+  
+  /* Text colors */
+  --text-primary: 17, 24, 39;
+  --text-secondary: 75, 85, 99;
+  --text-tertiary: 107, 114, 128;
+  
+  /* Border colors */
+  --border-light: 209, 213, 219;
+  --border-medium: 156, 163, 175;
+  
+  /* Shadow colors */
+  --shadow-sm: 0, 0, 0, 0.05;
+  --shadow-md: 0, 0, 0, 0.1;
+  --shadow-lg: 0, 0, 0, 0.15;
+  
+  /* Gradient colors */
+  --gradient-gold-start: 212, 165, 50;
+  --gradient-gold-end: 180, 132, 40;
+}
+
+/* Dark Theme */
+.dark {
+  --foreground-rgb: 243, 244, 246;
+  --background-rgb: 17, 24, 39;
+  
+  /* Primary colors */
+  --primary-gold: 245, 199, 97;
+  --primary-gold-light: 253, 224, 139;
+  --primary-gold-dark: 212, 165, 50;
+  
+  /* Background colors */
+  --bg-primary: 17, 24, 39;
+  --bg-secondary: 31, 41, 55;
+  --bg-tertiary: 51, 65, 85;
+  
+  /* Text colors */
+  --text-primary: 243, 244, 246;
+  --text-secondary: 192, 202, 210;
+  --text-tertiary: 115, 125, 140;
+  
+  /* Border colors */
+  --border-light: 51, 65, 85;
+  --border-medium: 75, 85, 99;
+  
+  /* Shadow colors */
+  --shadow-sm: 0, 0, 0, 0.1;
+  --shadow-md: 0, 0, 0, 0.2;
+  --shadow-lg: 0, 0, 0, 0.3;
+  
+  /* Gradient colors */
+  --gradient-gold-start: 245, 199, 97;
+  --gradient-gold-end: 212, 165, 50;
+}
+
+body {
+  color: rgb(var(--text-primary));
+  background: rgb(var(--background-rgb));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar - Light Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg-tertiary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border-medium));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--border-light));
+}
+
+/* Custom scrollbar - Dark Theme */
+.dark ::-webkit-scrollbar-track {
+  background: rgb(var(--bg-tertiary));
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgb(var(--border-medium));
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--border-light));
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #F59E0B;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   DARK THEME STYLES
+   ======================================== */
+
+/* Header styles for dark theme */
+.dark header {
+  @apply bg-slate-900 backdrop-blur-lg border-b border-slate-700;
+}
+
+.dark header.scrolled {
+  @apply bg-slate-900 shadow-2xl border-b border-slate-600;
+}
+
+/* Navigation text colors */
+.dark nav a {
+  @apply text-slate-200 hover:text-amber-400;
+}
+
+/* Card backgrounds for dark theme */
+.dark .bg-white {
+  @apply bg-slate-800;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-slate-700;
+}
+
+/* Text colors for dark theme */
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-gray-800 {
+  @apply text-slate-200;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  @apply text-slate-400;
+}
+
+/* Border colors for dark theme */
+.dark .border-gray-200,
+.dark .border-gold-100 {
+  @apply border-slate-700;
+}
+
+/* Shadow colors for dark theme */
+.dark .shadow-sm {
+  @apply shadow-none;
+}
+
+.dark .shadow-lg,
+.dark .shadow-xl {
+  @apply shadow-2xl shadow-slate-900;
+}
+
+/* Button styles for dark theme */
+.dark .hover\:bg-gold-600:hover {
+  @apply hover:bg-gold-500;
+}
+
+/* Input backgrounds for dark theme */
+.dark input,
+.dark select,
+.dark textarea {
+  @apply bg-slate-700 border-slate-600 text-white placeholder-slate-400;
+}
+
+/* Hero section for dark theme */
+.dark .bg-gradient-to-br.from-blue-400.to-cyan-600 {
+  @apply from-slate-800 to-slate-900;
+}
+
+/* Custom utility classes for theme transitions */
+@layer utilities {
+  .theme-transition {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+  
+  .theme-bg {
+    @apply bg-white dark:bg-slate-800;
+  }
+  
+  .theme-text {
+    @apply text-gray-700 dark:text-slate-200;
+  }
+  
+  .theme-text-secondary {
+    @apply text-gray-500 dark:text-slate-400;
+  }
+  
+  .theme-border {
+    @apply border-gray-200 dark:border-slate-700;
+  }
+}
+
+/* Smooth theme transition */
+* {
+  @apply theme-transition;
+}
